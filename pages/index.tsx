@@ -11,9 +11,8 @@ import Contact from "../components/Contact";
 
 const Home: NextPage = () => {
   return (
-    <div className="h-screen snap-y snap-mandatory z-0">
+    <div className="h-screen snap-y snap-mandatory z-0 overflow-scroll">
       {" "}
-      overflow-scroll
       <Head>
         <title>Michael Tong Portfolio</title>
       </Head>

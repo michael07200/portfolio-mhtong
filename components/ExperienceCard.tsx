@@ -1,32 +1,23 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Experience from "../components/Experience";
 
-type Props = {};
+type Props = {
+  exp: Experience;
+  title: string;
+};
 
-export default function ExperienceCard({}: Props) {
-  const expereiences = [
-    {
-      imageSrc: "",
-      position: "Architectural Assistant",
-      companyName: "",
-      skill: "",
-      startDate: "",
-      endDate: "",
-      summary: "",
-    },
-    {
-      imageSrc: "",
-      position: "Architectural Assistant 2",
-      companyName: "",
-      skill: "",
-      startDate: "",
-      endDate: "",
-      summary: "",
-    },
-  ];
+export type Experience = {
+  position: string;
+  summaryPoints: {
+    content: string[];
+  };
+};
 
+export default function ExperienceCard(props: Props) {
   return (
     <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#62973D] p-10 hover:opacity-100 opacity-50 cursor-pointer transition-opacity duration-200 overflow-hidden">
+      {props.title}
       <motion.img
         initial={{
           y: -100,
@@ -39,9 +30,7 @@ export default function ExperienceCard({}: Props) {
         alt=""
       />
       <div className="text-white">
-        {expereiences.map(({ position }) => (
-          <h4 className="text-4xl font-light">{position}</h4>
-        ))}
+        <h4 className="text-4xl font-light">{props.exp.position}</h4>
         <p className="font-bold text-2xl mt-1">Popma ter Steege</p>
         <div className="flex space-x-2 my-2">
           <img
@@ -55,10 +44,9 @@ export default function ExperienceCard({}: Props) {
         <p className="uppercase py-5">Started work.... - Ended ...</p>
 
         <ul className="list-disc space-y-4 ml-5 text-lg">
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
+          {props.exp.summaryPoints.content.map((content) => {
+            return <li>content</li>;
+          })}
         </ul>
       </div>
     </article>
