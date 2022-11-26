@@ -2,20 +2,34 @@ import React from "react";
 import { motion } from "framer-motion";
 import ExperienceCard from "../components/ExperienceCard";
 
-type Props = {};
-
-export default function Experience({}: Props) {
-  const exp = [
+export default function Experience() {
+  const experiences = [
     {
+      id: 1,
+      imageSrc: "",
+      imageAlt: "",
       position: "Architectural Assistant",
+      companyName: "Popma",
+      skillSrc: [""],
+      skilAlt: [""],
+      startDate: "",
+      endDate: "",
       summaryPoints: {
-        content: ["s1", "s2"],
+        content: ["a1", "a2"],
       },
     },
     {
+      id: 2,
+      imageSrc: "",
+      imageAlt: "",
       position: "Architectural Assistant 2",
+      companyName: "P&T",
+      skillSrc: [""],
+      skilAlt: [""],
+      startDate: "",
+      endDate: "",
       summaryPoints: {
-        content: ["s1", "s2", "s3", "s4"],
+        content: ["b1", "b2", "b3", "b4"],
       },
     },
   ];
@@ -30,9 +44,9 @@ export default function Experience({}: Props) {
       <h3 className="title">Experience</h3>
 
       <div className="w-full flex space-x-10 overflow-x-scroll p-10 snap-x snap-mandatory">
-        {exp.map((exp) => {
-          return <ExperienceCard exp={exp} title={"some title"} />;
-        })}
+        {experiences.map((experience) => (
+          <ExperienceCard {...experience} />
+        ))}
       </div>
     </motion.div>
   );

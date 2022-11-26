@@ -1,23 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Experience from "../components/Experience";
 
 type Props = {
-  exp: Experience;
-  title: string;
-};
-
-export type Experience = {
+  id: number;
   position: string;
+  companyName: string;
   summaryPoints: {
     content: string[];
   };
 };
 
-export default function ExperienceCard(props: Props) {
+export default function ExperienceCard(experience: Props) {
   return (
     <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#62973D] p-10 hover:opacity-100 opacity-50 cursor-pointer transition-opacity duration-200 overflow-hidden">
-      {props.title}
       <motion.img
         initial={{
           y: -100,
@@ -30,8 +25,8 @@ export default function ExperienceCard(props: Props) {
         alt=""
       />
       <div className="text-white">
-        <h4 className="text-4xl font-light">{props.exp.position}</h4>
-        <p className="font-bold text-2xl mt-1">Popma ter Steege</p>
+        <h4 className="text-4xl font-light">{experience.position}</h4>
+        <p className="font-bold text-2xl mt-1">{experience.companyName}</p>
         <div className="flex space-x-2 my-2">
           <img
             className="h-10 w-10 rounded-full"
@@ -44,9 +39,9 @@ export default function ExperienceCard(props: Props) {
         <p className="uppercase py-5">Started work.... - Ended ...</p>
 
         <ul className="list-disc space-y-4 ml-5 text-lg">
-          {props.exp.summaryPoints.content.map((content) => {
-            return <li>content</li>;
-          })}
+          {experience.summaryPoints.content.map((content) => (
+            <li>{content}</li>
+          ))}
         </ul>
       </div>
     </article>
