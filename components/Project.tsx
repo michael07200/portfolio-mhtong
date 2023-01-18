@@ -4,7 +4,16 @@ import { motion } from "framer-motion";
 type Props = {};
 
 export default function Project({}: Props) {
-  const projects = [1, 2, 3];
+  const projects = [
+    {
+      name: "WeCoNet",
+      website: "https://www.lean-6-sigma.nl/wp-content/uploads/Project-charter-1.jpg",
+      description: "AAA",
+    },
+    { name: "Game", website: "", description: "BBB" },
+    { name: "Website", website: "", description: "CCC" },
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -16,7 +25,7 @@ export default function Project({}: Props) {
 
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatroy z-20">
         {projects.map((project, i) => (
-          <div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
+          <div className="w-screen h-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-80">
             <motion.img
               initial={{
                 y: -300,
@@ -25,21 +34,18 @@ export default function Project({}: Props) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2 }}
               viewport={{ once: true }}
-              src="https://www.lean-6-sigma.nl/wp-content/uploads/Project-charter-1.jpg"
+              src={project.website}
               alt=""
             />
 
             <div className="space-y-10 px-10 md:px-10 max-w-6xl">
               <h4 className="text-4xl font-semibold text-center">
                 <span className="underline decoration-[#F7AB0A]/50">
-                  Case study {i + 1} of {projects.length}:
-                </span>{" "}
-                Website
+                  {i + 1}. {project.name}
+                </span>
               </h4>
 
-              <p className="text-lg text-center md:text-left">
-                My first website using ...
-              </p>
+              <p className="text-lg text-center md:text-left">{project.description}</p>
             </div>
           </div>
         ))}
