@@ -20,4 +20,8 @@
     text-[#41493B] placeholder-[#A5AE9D] transition-all 
     focus:border-[#62973D] focus:text-black hover:border-[#62973D]/40;
   }
+
+  .themeText {
+    @apply text-[#62973D]
+  }
 }
