@@ -1,7 +1,9 @@
 "use strict";
 exports.__esModule = true;
 var react_1 = require("react");
+var framer_motion_1 = require("framer-motion");
 var TimeLine = function () {
+    var scrollYProgress = framer_motion_1.useScroll().scrollYProgress;
     var experiences = [
         {
             imageSrc: "/assets/ptsa.svg",
@@ -47,10 +49,12 @@ var TimeLine = function () {
     ];
     return (react_1["default"].createElement("div", { className: "relative container mx-auto px-6 flex flex-col space-y-8" },
         react_1["default"].createElement("div", { className: "absolute z-0 w-2 h-full bg-white shadow-md inset-0 left-16 md:mx-auto md:right-0 md:left-0" }),
-        experiences.map(function (experience, index) { return (react_1["default"].createElement("div", { className: "relative z-10" },
+        experiences.map(function (experience, index) { return (react_1["default"].createElement(framer_motion_1.motion.div, { className: "relative z-10", initial: { x: index % 2 !== 0 ? 100 : -100, opacity: 0 }, whileInView: { x: 0, opacity: 1 }, transition: { duration: 1.5 } },
             react_1["default"].createElement("img", { src: experience.imageSrc, alt: "", className: "h-24 w-24 bg-white object-fit-contain rounded-full shadow-md border-4 border-white sm:absolute md:mx-auto md:left-0 md:right-0" }),
-            react_1["default"].createElement("div", { className: "" + (index % 2 !== 0 ? "timeline-container" : "timeline-container timeline-container-left") },
-                react_1["default"].createElement("div", { className: "" + (index % 2 !== 0 ? "timeline-pointer" : "timeline-container timeline-pointer-left"), "aria-hidden": "true" }),
+            react_1["default"].createElement("div", { className: "" + (index % 2 !== 0 ? "timeline-container" : "timeline-container timeline-container-left" // even index left
+                ) },
+                react_1["default"].createElement("div", { className: "" + (index % 2 !== 0 ? "timeline-pointer" : "timeline-pointer timeline-pointer-left" // even index left
+                    ), "aria-hidden": "true" }),
                 react_1["default"].createElement("div", { className: "bg-white p-6 rounded-md shadow-md" },
                     react_1["default"].createElement("span", { className: "font-bold text-indigo-600 text-sm tracking-wide" },
                         experience.startDate,

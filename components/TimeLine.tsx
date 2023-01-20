@@ -1,8 +1,9 @@
 import React from "react";
-import TimeLineCard from "./TimeLineCard";
-import Image from "next/image";
+import { motion, useScroll } from "framer-motion";
 
 const TimeLine = () => {
+  const { scrollYProgress } = useScroll();
+
   const experiences = [
     {
       imageSrc: "/assets/ptsa.svg",
@@ -54,7 +55,12 @@ const TimeLine = () => {
 
       {/* Content */}
       {experiences.map((experience, index) => (
-        <div className="relative z-10">
+        <motion.div
+          className="relative z-10"
+          initial={{ x: index % 2 !== 0 ? 100 : -100, opacity: 0 }} // odd index: x:-100, even index: x:100
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1.5 }}
+        >
           <img
             src={experience.imageSrc}
             alt=""
@@ -62,12 +68,12 @@ const TimeLine = () => {
           />
           <div
             className={`${
-              index % 2 !== 0 ? "timeline-container" : "timeline-container timeline-container-left"
+              index % 2 !== 0 ? "timeline-container" : "timeline-container timeline-container-left" // even index left
             }`}
           >
             <div
               className={`${
-                index % 2 !== 0 ? "timeline-pointer" : "timeline-container timeline-pointer-left"
+                index % 2 !== 0 ? "timeline-pointer" : "timeline-pointer timeline-pointer-left" // even index left
               }`}
               aria-hidden="true"
             ></div>
@@ -81,7 +87,7 @@ const TimeLine = () => {
               <p>{experience.summaryPoints}</p>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
