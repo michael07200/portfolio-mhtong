@@ -33,7 +33,20 @@ function Skill(_a) {
             }
         });
     });
-    return (react_1["default"].createElement("div", null,
-        react_1["default"].createElement(react_icon_cloud_1.Cloud, null, icons)));
+    return (react_1["default"].createElement("div", { className: "relative bg-white pt-16 pb-32 overflow-hidden" },
+        react_1["default"].createElement("div", null,
+            react_1["default"].createElement("div", { className: "relative" },
+                react_1["default"].createElement("div", { className: "lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24" },
+                    react_1["default"].createElement("div", { className: "px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0" },
+                        react_1["default"].createElement("div", null,
+                            react_1["default"].createElement("div", { className: "mt-6" },
+                                react_1["default"].createElement("h2", { className: "text-3xl font-extrabold tracking-tight text-gray-900" }, "Skills"),
+                                react_1["default"].createElement("ul", { className: "mt-4 text-base text-gray-500" },
+                                    react_1["default"].createElement("li", null, "Proficient: Javascript | React | Tailwind CSS | Node | Express | MongoDB | PostgreSQL"),
+                                    react_1["default"].createElement("li", null, "Knowledgeable: Typescript | Next.js | Redux | Python | REST API"),
+                                    react_1["default"].createElement("li", null, "Tools: Git | GitHub | Figma | Postman | Photoshop | Illustrator | Indesign | Grasshopper"))))),
+                    react_1["default"].createElement("div", { className: "flex align-center mt-12 sm:mt-16" },
+                        react_1["default"].createElement("div", { className: "pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full" },
+                            react_1["default"].createElement(react_icon_cloud_1.Cloud, null, icons))))))));
 }
 exports["default"] = Skill;
